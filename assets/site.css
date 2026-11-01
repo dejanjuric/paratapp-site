@@ -1,0 +1,65 @@
+/* One stylesheet for every page. The values are the steps of Grid.swift and the tokens of Colors.swift. */
+:root{color-scheme:light dark;
+  --ground:#F5F4F0;--ink:#0A0A0A;--ink2:#6B6B66;
+  --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;
+  --side:var(--s3)}
+@media (prefers-color-scheme:dark){:root{--ground:#0A0A0A;--ink:#F5F4F0;--ink2:#9A9A94}}
+@media (min-width:40rem){:root{--side:var(--s5)}}
+*,*::before,*::after{box-sizing:border-box;border-radius:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:1.0625rem;font-weight:400;line-height:1.5;padding-inline:var(--side)}
+header,main,footer{max-width:38rem}
+
+/* Links: ink, underlined, no colour change. */
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+a:hover,a:focus{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:var(--s1)}
+.skip{position:absolute;top:0;left:var(--side);padding:0 var(--s3);min-height:44px;line-height:44px;background:var(--ink);color:var(--ground);transform:translateY(-100%)}
+.skip:focus{transform:translateY(0)}
+
+/* Chrome: the header row and the footer navigation. */
+header{display:flex;justify-content:space-between;flex-wrap:wrap;padding-top:var(--s2);margin-bottom:var(--s5)}
+header a,footer a{display:inline-block;min-height:44px;line-height:44px}
+header a.name{font-weight:700}
+footer{margin-top:var(--s5);padding-bottom:var(--s7)}
+footer nav{display:flex;flex-wrap:wrap;gap:0 var(--s2)}
+[aria-current="page"]{font-weight:700}
+
+/* Text: Display for the page title, Heading for the blocks, Body for the rest, Label for the small print. */
+h1,h2,p,dd{hyphens:auto;overflow-wrap:break-word}
+h1,p{margin:0 0 var(--s3)}
+h1{font-size:2.5rem;font-weight:700;line-height:1;letter-spacing:-.02em;font-stretch:condensed}
+h2{margin:var(--s4) 0 var(--s2);font-size:1.5rem;font-weight:700;line-height:1.2;letter-spacing:-.01em}
+h1+h2{margin-top:var(--s3)}
+strong,.rights-lead{font-weight:700}
+hr{border:0;border-top:1px solid var(--ink);margin:var(--s4) 0}
+.num{font-family:ui-monospace, Menlo, monospace;font-variant-numeric:tabular-nums}
+a[href^="mailto:"]{overflow-wrap:anywhere}
+
+/* Home page: the icon, the three facts, the testing line, the two pictures. */
+.icon{display:block;width:96px;height:96px;margin:0 0 var(--s4)}
+ul.facts{list-style:none;margin:var(--s5) 0 0;padding:0}
+ul.facts li{padding:var(--s3) 0;border-top:1px solid var(--ink)}
+ul.facts li:last-child{border-bottom:1px solid var(--ink)}
+.testing{margin-top:var(--s4)}
+.shots{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:var(--s3);margin:var(--s6) 0}
+figure{margin:0}
+.shot{display:block;max-width:100%;height:auto;border:1px solid var(--ink2)}
+figcaption{margin-top:var(--s2);font-size:0.8125rem;line-height:1.4;letter-spacing:.02em;color:var(--ink2)}
+
+/* Text pages: the rights list, the draft line, the FAQ, the message block, the address block. */
+ul#rights{list-style:none;margin:0 0 var(--s3);padding:0}
+ul#rights li+li{margin-top:var(--s2)}
+.rights-lead{margin-bottom:var(--s2)}
+.hint{margin:var(--s5) 0 0;font-size:0.8125rem;line-height:1.4;letter-spacing:.02em;color:var(--ink2)}
+dl.faq{margin:0 0 var(--s3)}
+dl.faq dt{font-weight:700;margin:var(--s4) 0 var(--s2)}
+dl.faq dt:first-child{margin-top:0}
+dl.faq dd{margin:0}
+dl.faq dd p:last-child{margin-bottom:0}
+.message{margin:var(--s3) 0;padding-left:var(--s3);border-left:4px solid var(--ink);font-weight:700}
+h2+.message{margin-top:var(--s2)}
+dl.address{margin:0 0 var(--s3);font-style:normal}
+dl.address dt{font-size:0.8125rem;line-height:1.4;letter-spacing:.02em;color:var(--ink2)}
+dl.address dd{margin:var(--s1) 0 0;overflow-wrap:anywhere}
+dl.address dd+dt{margin-top:var(--s3)}
